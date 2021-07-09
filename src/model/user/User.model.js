@@ -9,6 +9,26 @@ const insertUser = (userObj) => {
   });
 };
 
+const getUserByEmail = (email) => {
+  return new Promise((resolve, reject) => {
+    if (!email) return false;
+
+    try {
+      UserSchema.findOne({ email }, (error, data) => {
+        if (error) {
+          console.log(error);
+          reject(error);
+        }
+        resolve(data);
+      });
+    } catch (error) {
+      console.log(error);
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   insertUser,
+  getUserByEmail,
 };

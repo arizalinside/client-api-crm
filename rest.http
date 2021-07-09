@@ -1,0 +1,21 @@
+### User Sign Up Endpoint
+POST http://localhost:3001/v1/user
+Content-Type: application/json
+
+{
+    "name": "Anya Geraldine",
+    "company": "That Company",
+    "address": "Idk",
+    "phone": "0000101010",
+    "email": "hmm2@mail.com",
+    "password": "secret123"
+}
+
+### User Sign In Endpoint
+POST http://localhost:3001/v1/user/login
+Content-Type: application/json
+
+{
+    "email": "hmm2@mail.com",
+    "password": "secret123"
+}
