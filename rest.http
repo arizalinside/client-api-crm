@@ -3,11 +3,11 @@ POST http://localhost:3001/v1/user
 Content-Type: application/json
 
 {
-    "name": "Anya Geraldine",
-    "company": "That Company",
-    "address": "Idk",
-    "phone": "0000101010",
-    "email": "hmm2@mail.com",
+    "name": "Supriyanto",
+    "company": "Tokopedia",
+    "address": "Indonesia",
+    "phone": "82301010940",
+    "email": "supriyanto@mail.com",
     "password": "secret123"
 }
 
@@ -16,6 +16,6 @@ POST http://localhost:3001/v1/user/login
 Content-Type: application/json
 
 {
-    "email": "hmm2@mail.com",
+    "email": "supriyanto@mail.com",
     "password": "secret123"
 }

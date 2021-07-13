@@ -53,9 +53,9 @@ router.post("/login", async (req, res) => {
     // Hash our password and compare with the db one
     const result = await comparePassword(password, passFromDb);
     if (result) {
-      const accessJWT = await createAccessJWT(user.email);
+      const accessJWT = await createAccessJWT(user.email, `${user._id}`);
 
-      const refreshJWT = await createRefreshJWT(user.email);
+      const refreshJWT = await createRefreshJWT(user.email, `${user._id}`);
 
       res.json({
         status: "success",
