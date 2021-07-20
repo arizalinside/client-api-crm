@@ -1,15 +1,25 @@
 const express = require("express");
-const { route } = require("./ticket.router");
 const router = express.Router();
 
-const { insertUser, getUserByEmail } = require("../model/user/User.model");
+const { insertUser, getUserByEmail, getUserById } = require("../model/user/User.model");
 const { hashPassword, comparePassword } = require("../helpers/bcrypt.helper");
 const { createAccessJWT, createRefreshJWT } = require("../helpers/jwt.helper");
+const { userAuthorization } = require("../middlewares/authorization.middleware");
+
 
 router.all("/", (req, res, next) => {
   // res.json({ message: "return form user router" })
   next();
 });
+
+// Get user profile router
+router.get("/", userAuthorization, async (req, res) => {
+
+  const _id = req.userId
+
+  const userProfile = await getUserById(_id);
+  res.json({ user: userProfile })
+})
 
 // Create new user router
 router.post("/", async (req, res) => {
@@ -44,7 +54,7 @@ router.post("/login", async (req, res) => {
 
   // Get user with email from db
   const user = await getUserByEmail(email);
-
+  console.log(user)
   const passFromDb = user && user.id ? user.password : null;
 
   if (!passFromDb) {
