@@ -19,3 +19,7 @@ Content-Type: application/json
     "email": "supriyanto@mail.com",
     "password": "secret123"
 }
+
+### Get a user profile Endpoint
+GET http://localhost:3001/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InN1cHJpeWFudG9AbWFpbC5jb20iLCJpYXQiOjE2MjY3ODY3NzQsImV4cCI6MTYyNjc4NzY3NH0.p3GCrU3lVjGVTdJxi6xakvGaed9fGkigAQJ7g8rIQ0A
