@@ -28,6 +28,25 @@ const getUserByEmail = (email) => {
   });
 };
 
+const getUserById = (_id) => {
+  return new Promise((resolve, reject) => {
+    if (!_id) return false;
+
+    try {
+      UserSchema.findOne({_id}, (error, data) => {
+        if (error) {
+          console.log(error);
+          reject(error);
+        }
+        resolve(data);
+      });
+    } catch (error) {
+      // console.log(error);
+      reject(error);
+    }
+  });
+};
+
 const storeUserRefreshJWT = (_id, token) => {
   return new Promise((resolve, reject) => {
     try {
@@ -52,5 +71,6 @@ const storeUserRefreshJWT = (_id, token) => {
 module.exports = {
   insertUser,
   getUserByEmail,
+  getUserById,
   storeUserRefreshJWT
 };
